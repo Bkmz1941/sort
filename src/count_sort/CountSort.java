@@ -1,8 +1,6 @@
-package count;
+package count_sort;
 
 import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
 
 public class CountSort {
     public static void main(String[] args) {
