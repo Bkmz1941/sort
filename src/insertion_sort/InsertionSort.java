@@ -2,7 +2,7 @@ package insertion_sort;
 
 public class InsertionSort {
     public static void main(String[] args) {
-        int[] unsorted = new int[]{7, 4, 5, 1, 9, 3, 6, 8, 2};
+        int[] unsorted = new int[]{9, 5, 1, 7, 3};
         insertionSort(unsorted);
         for (int i : unsorted) {
             System.out.print(i);
@@ -18,6 +18,7 @@ public class InsertionSort {
                 array[j + 1] = array[j];
                 j--;
             }
+
             array[j + 1] = temp;
         }
     }

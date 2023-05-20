@@ -2,7 +2,7 @@ package selection_sort;
 
 public class SelectionSort {
     public static void main(String[] args) {
-        int[] unsorted = new int[]{7, 4, 5, 1, 9, 3, 6, 8, 2};
+        int[] unsorted = new int[]{9, 5, 1, 7, 3};
         selectionSort(unsorted);
         for (int i : unsorted) {
              System.out.print(i);
