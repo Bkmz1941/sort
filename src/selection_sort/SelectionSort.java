@@ -1,27 +1,30 @@
 package selection_sort;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 public class SelectionSort {
     public static void main(String[] args) {
         int[] unsorted = new int[]{9, 5, 1, 7, 3};
         selectionSort(unsorted);
-        for (int i : unsorted) {
-             System.out.print(i);
-        }
+        System.out.println(Arrays.toString(unsorted));
     }
 
     public static void selectionSort(int[] array) {
         for (int i = 0; i < array.length - 1; i++) {
-            int min_idx = i;
-
-            for (int j = i; j < array.length; j++) {
-                if (array[j] < array[min_idx]) {
-                    min_idx = j;
+            int minIndex = i;
+            for (int j = i + 1; j < array.length; j++) {
+                if (array[j] < array[minIndex]) {
+                    minIndex = j;
                 }
             }
-
-            int temp = array[i];
-            array[i] = array[min_idx];
-            array[min_idx] = temp;
+            swap(i, minIndex, array);
         }
+    }
+
+    private static void swap(int x, int y, int[] array) {
+        int temp = array[x];
+        array[x] = array[y];
+        array[y] = temp;
     }
 }
