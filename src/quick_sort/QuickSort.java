@@ -35,11 +35,10 @@ public class QuickSort {
             while (array[endIndex] > pivot) {
                 endIndex--;
             }
-            if (startIndex <= endIndex) {
+            if (startIndex < endIndex) {
                 int temp = array[startIndex];
                 array[startIndex] = array[endIndex];
                 array[endIndex] = temp;
-
                 startIndex++;
                 endIndex--;
             }

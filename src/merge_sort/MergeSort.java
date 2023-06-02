@@ -2,11 +2,24 @@ package merge_sort;
 
 import java.util.Arrays;
 
-public class MergeSort {
-    public static void main(String[] args) {
-        int[] unsorted = new int[]{9, 5, 1, 7, 3};
-        mergeSort(unsorted);
-        System.out.println(Arrays.toString(unsorted));
+public record MergeSort<T extends Comparable<T>>(T[] array) {
+    public void merge(int start, int mid, int end) {
+        T[] leftArray = (T[]) new Comparable[mid - start + 1];
+        T[] rightArray = (T[]) new Comparable[end - mid];
+
+        System.arraycopy(array, start, leftArray, 0, leftArray.length);
+        System.arraycopy(array, mid + 1, rightArray, 0, rightArray.length);
+
+        int i = start, l = 0, r = 0;
+        while (l < leftArray.length && r < rightArray.length) {
+            array[i++] = leftArray[l].compareTo(rightArray[r]) < 0 ? leftArray[l++] : rightArray[r++];
+        }
+        while (l < leftArray.length) {
+            array[i++] = leftArray[l++];
+        }
+        while (r < rightArray.length) {
+            array[i++] = rightArray[r++];
+        }
     }
 
     public static void mergeSort(int[] array) {
